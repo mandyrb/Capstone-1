@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %} 
+
+<div class="container-fluid"></div>
+    <div class="jumbotron blue">
+        <h1 class="display-3">Welcome to Paragraph A Day!</h1>
+        <p class="lead"><span class="font-weight-bold">Paragraph A Day </span> is a tool made for writers, designed to make a daily writing practice enjoyable and motivating.</p>
+        <hr class="my-4">
+        <p>Describe great things about Paragraph A Day here.</p>
+        <p class="lead">
+        <a class="btn btn-light btn-lg" href="#" role="button">Learn more</a>
+        </p>
+    </div>
+
+    <div>
+        <h1 class="display-4 ml-4">Allow an image to spark your creativity!</h1>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-4">
+        <div class="card ml-4">
+            <img class="card-img-top" src="https://images.unsplash.com/photo-1455390582262-044cdead277a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwyMTIzOTh8MHwxfHNlYXJjaHwxfHx3cml0aW5nfGVufDB8fHw&ixlib=rb-1.2.1&q=80&w=400" alt="Card image cap">
+            <span class="small">Photo by <a href="https://unsplash.com/@aaronburden?utm_source=paragraph_a_day&utm_medium=referral">Aaron Burden</a> on <a href="https://unsplash.com/?utm_source=paragraph_a_day&utm_medium=referral">Unsplash</a></span>
+            <div class="card-body">
+              <h5 class="card-title">An Image to Inspire</h5>
+            </div>
+          </div>
+      </div>
+      <div class="col-8">
+        <div class="card mr-4 blue">
+            <div class="card-body">
+              <button type="button" id = "example-title-1" class="bg-light text-dark text-left btn btn-secondary btn-lg btn-block">Example Paragraph: Why I Love to Write</button>
+              <p id = "example-paragraph-1" class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse nostrum, placeat ullam incidunt aspernatur quaerat nemo? Laboriosam, illum laborum iusto aliquid eos quia eveniet soluta eum sequi cumque fuga excepturi! lor Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis quod, consequatur necessitatibus ducimus soluta voluptas maiores ut deleniti natus dicta consectetur rem, quaerat fuga vel illum recusandae optio cupiditate aut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quibusdam nesciunt velit. Aut quisquam quas dolores numquam, quaerat ducimus iusto natus ipsam! Maxime fugit obcaecati vel facere quas ipsum dolor! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem sed ipsam maxime voluptas eos ea aperiam aliquid dolorum, a eius corporis assumenda saepe id cumque aliquam eaque porro, placeat repellat?</p>
+            </div>
+          </div>
+          <div class="card mr-4 blue">
+            <div class="card-body">
+              <button type="button" id = "example-title-2" class="bg-light text-dark text-left btn btn-secondary btn-lg btn-block">Example Paragraph: Why Writing is Awesome!</button>
+              <p id = "example-paragraph-2" class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse nostrum, placeat ullam incidunt aspernatur quaerat nemo? Laboriosam, illum laborum iusto aliquid eos quia eveniet soluta eum sequi cumque fuga excepturi! lor Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis quod, consequatur necessitatibus ducimus soluta voluptas maiores ut deleniti natus dicta consectetur rem, quaerat fuga vel illum recusandae optio cupiditate aut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quibusdam nesciunt velit. Aut quisquam quas dolores numquam, quaerat ducimus iusto natus ipsam! Maxime fugit obcaecati vel facere quas ipsum dolor! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem sed ipsam maxime voluptas eos ea aperiam aliquid dolorum, a eius corporis assumenda saepe id cumque aliquam eaque porro, placeat repellat?</p>
+            </div>
+          </div>
+      </div>
+    </div>
+</div>
+<br>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+body {
+	background-color: rgb(202, 193, 214);
+}
+
+.blue {
+	background-color: rgb(160, 151, 194);
+}
+
+.light_blue {
+	background-color: rgb(216, 208, 247);
+}
+
+.btn-primary:hover {
+	background-color: rgb(116, 126, 140);
+	border-color: rgb(116, 126, 140);
+}
+
+.btn-primary {
+	background-color: rgb(88, 82, 112);
+	border-color: rgb(88, 82, 112);
+}
+
+.btn-light {
+	background-color: rgb(202, 193, 214);
+	border-color: rgb(202, 193, 214);
+}
+
+.form-inline {
+	display: inline;
+}

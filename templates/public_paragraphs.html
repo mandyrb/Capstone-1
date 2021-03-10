@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %} Public Paragraphs {% endblock %}
+
+{% block content %} 
+
+    <div class="jumbotron blue">
+        <h1 class="display-4">Public Paragraphs</h1>
+        <p class="lead">One of the best ways to get inspired is to read others' writing. Enjoy scrolling below, 
+            to see recent paragraphs other users were inspired to write. Set your own paragrpahs to "public" to share your writing with others.</p>
+    </div>
+
+    <div class="row">
+    <div class="col-6">
+        <h2 class="display-4 ml-4">View Recent Paragraphs</h2>
+    </div>
+    <div class="col-6">
+    <form class="mr-4" novalidate method="POST" action="">
+        {{ form.hidden_tag() }}
+        {% for field in form if field.widget.input_type != 'hidden'%}
+        <div class="form-group">
+          {{field.label}}
+          {{field(class_="form-control")}}
+          {% for error in field.errors %}
+          <span class="form-text text-danger">{{error}}</span>
+          {% endfor %}
+        </div>
+        {% endfor %}
+        <button class="btn btn-primary" name="register-button">Submit</button>
+    </form>
+    </div>
+    </div>
+
+    <br>
+    <br>
+
+    {% for paragraph in paragraphs %}
+    <div class="row">
+        <div class="col-2">
+            <div class="card ml-4">
+                    <img src="{{paragraph.image.image_url}}" alt="Card image cap">
+              <span class="small">Photo by <a href="{{paragraph.image.credit_url}}?utm_source=paragraph_a_day&utm_medium=referral">{{paragraph.image.photographer}}</a> on <a href="https://unsplash.com/?utm_source=paragraph_a_day&utm_medium=referral">Unsplash</a></span>
+            </div>
+        </div>
+        <div class="col-10">
+            <div class="card mr-4">
+              <div class="card-body">
+                <h5 class="card-title">{{paragraph.title}}
+                    {% if user_id == paragraph.user_id %}
+                    <a href="/edit_paragraph/{{paragraph.id}}" class="btn btn-light btn-sm">Edit</a>
+                    <form class="form-inline" action="/delete_paragraph/{{paragraph.id}}" method="POST"> 
+                        <button class="btn btn-light btn-sm">Delete</button>
+                    </form>
+                    {% endif %}
+                </h5>
+                <p>{{paragraph.content}}</p>
+              </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    {% endfor %}
+
+{% endblock %}
+
