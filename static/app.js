@@ -1,8 +1,8 @@
-
+// A few front-end interactive components for Paragraph A Day
 
 $(document).ready(function() {
     //Hide example paragraph content on home page
-    $(".card-text").hide();
+    $(".hide-me").hide();
 
     //Make sure text area for paragraph submission shows remaining characters allowed
     let currentLength = $('textarea').val().length;

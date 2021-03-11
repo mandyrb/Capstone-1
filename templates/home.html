@@ -4,14 +4,13 @@
 
 {% block content %} 
 
-<div class="container-fluid"></div>
     <div class="jumbotron blue">
         <h1 class="display-3">Welcome to Paragraph A Day!</h1>
-        <p class="lead"><span class="font-weight-bold">Paragraph A Day </span> is a tool made for writers, designed to make a daily writing practice enjoyable and motivating.</p>
+        <p class="lead"><span class="font-weight-bold">Paragraph A Day </span> is a tool made for writers, designed to make the writing practice enjoyable and motivating</p>
         <hr class="my-4">
-        <p>Describe great things about Paragraph A Day here.</p>
+        <p>Writing can be a rewarding experience, but getting started isn't always easy. Sometimes it's hard to find inspiration, to generate an idea we actually want to write about. Other times we have great ideas, but we have a hard time putting pen to paper, because the scope is intimidating and we're not sure where to begin. Other times we long to share ideas and inspiration with others, but we're hesitant because we don't want our writing to be driven by a desire for validation. Paragraph A Day reduces these pressures, by providing a unique image prompt every day, a 500 character limit, and the ability to share without judgment or feedback. Paragraph A Day is a place to have fun, explore ideas, and enjoy stress-free sharing with others.</p>
         <p class="lead">
-        <a class="btn btn-light btn-lg" href="#" role="button">Learn more</a>
+        <a class="btn btn-success btn-lg" href="/about" role="button">Learn more</a>
         </p>
     </div>
 
@@ -22,7 +21,7 @@
 
     <div class="row">
       <div class="col-4">
-        <div class="card ml-4">
+        <div class="card ml-4 light">
             <img class="card-img-top" src="https://images.unsplash.com/photo-1455390582262-044cdead277a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwyMTIzOTh8MHwxfHNlYXJjaHwxfHx3cml0aW5nfGVufDB8fHw&ixlib=rb-1.2.1&q=80&w=400" alt="Card image cap">
             <span class="small">Photo by <a href="https://unsplash.com/@aaronburden?utm_source=paragraph_a_day&utm_medium=referral">Aaron Burden</a> on <a href="https://unsplash.com/?utm_source=paragraph_a_day&utm_medium=referral">Unsplash</a></span>
             <div class="card-body">
@@ -30,21 +29,41 @@
             </div>
           </div>
       </div>
+
       <div class="col-8">
+        <div class="card mr-4 pt-3 pb-2 blue">
+          <h5 id="examples-heading">Example Paragraphs</h5>
+        </div>
+        <div class="card mr-4 blue">
+          <div class="card-body">
+            <button type="button" id = "example-title-2" class="bg-light text-dark text-left btn btn-success btn-lg btn-block">The Letter</button>
+            <p id = "example-paragraph-2" class="card-text hide-me mt-2">He picks up the pen, determined to try again. What will he say? He loved her for so many years, loved her deeply and truly. But something changed, and he has to tell her. But how do you tell someone your love has changed? As he tries again (he's lost count of how many times he's tried), he imagines how her face will look when she reads his words, the eager expectation, the slow crumbling, the reddening, the wetting with tears.  </p>
+          </div>
+        </div>
         <div class="card mr-4 blue">
             <div class="card-body">
-              <button type="button" id = "example-title-1" class="bg-light text-dark text-left btn btn-secondary btn-lg btn-block">Example Paragraph: Why I Love to Write</button>
-              <p id = "example-paragraph-1" class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse nostrum, placeat ullam incidunt aspernatur quaerat nemo? Laboriosam, illum laborum iusto aliquid eos quia eveniet soluta eum sequi cumque fuga excepturi! lor Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis quod, consequatur necessitatibus ducimus soluta voluptas maiores ut deleniti natus dicta consectetur rem, quaerat fuga vel illum recusandae optio cupiditate aut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quibusdam nesciunt velit. Aut quisquam quas dolores numquam, quaerat ducimus iusto natus ipsam! Maxime fugit obcaecati vel facere quas ipsum dolor! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem sed ipsam maxime voluptas eos ea aperiam aliquid dolorum, a eius corporis assumenda saepe id cumque aliquam eaque porro, placeat repellat?</p>
+              <button type="button" id = "example-title-1" class="bg-light text-dark text-left btn btn-successs btn-lg btn-block">Why I Love to Write</button>
+              <p id = "example-paragraph-1" class="card-text hide-me mt-2">This image of an old-fashioned pen reminds me of why I love to write: it's a practice that's been around for centuries, and part of what makes us human. We have this amazing ability to memorialize our thoughts, to cement them and make them permanent, which is something truly unique to our species. I envision the writing of our ancestors reaching out from the past to touch me, and mine reaching out to touch those in the future. </p>
             </div>
           </div>
           <div class="card mr-4 blue">
             <div class="card-body">
-              <button type="button" id = "example-title-2" class="bg-light text-dark text-left btn btn-secondary btn-lg btn-block">Example Paragraph: Why Writing is Awesome!</button>
-              <p id = "example-paragraph-2" class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse nostrum, placeat ullam incidunt aspernatur quaerat nemo? Laboriosam, illum laborum iusto aliquid eos quia eveniet soluta eum sequi cumque fuga excepturi! lor Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis quod, consequatur necessitatibus ducimus soluta voluptas maiores ut deleniti natus dicta consectetur rem, quaerat fuga vel illum recusandae optio cupiditate aut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quibusdam nesciunt velit. Aut quisquam quas dolores numquam, quaerat ducimus iusto natus ipsam! Maxime fugit obcaecati vel facere quas ipsum dolor! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem sed ipsam maxime voluptas eos ea aperiam aliquid dolorum, a eius corporis assumenda saepe id cumque aliquam eaque porro, placeat repellat?</p>
+              <button type="button" id = "example-title-2" class="bg-light text-dark text-left btn btn-success btn-lg btn-block">Pen to Paper</button>
+              <p id = "example-paragraph-2" class="card-text hide-me mt-2">Pen to paper, ink spills, ink leaks. Writing can be messy. I see my pen and it calls to me. I see my paper and it repels me – it's so empty, waiting for me to fill it. What will I come up with? Will it be good? Will it be terrible? The spaces within my mind fill with thoughts... will I choose to write them down or will I keep them, just for myself? </p>
             </div>
           </div>
       </div>
     </div>
+</div>
+<br>
+
+<br>
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div class="card blue p-2">
+      <h4 class="text-center">Get started and sign up today!<a class="btn btn-success ml-4" href="/register" role="button">Register</a></h4>
+    </div>
+  </div>
 </div>
 <br>
 

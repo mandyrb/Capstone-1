@@ -9,12 +9,9 @@ app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "postgres:///paragraph_db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["SQLALCHEMY_ECHO"] = True
-
-# If I need to use the Unsplash secret key here, will need to put in secret file, perhaps when deploying to Heroku?
 app.config["SECRET_KEY"] = secret_key
 
 connect_db(app)
-
 
 def get_image():
     """Check to see whether there's already an image in the database for today
@@ -39,10 +36,18 @@ def home_page():
 
     return render_template("home.html")
 
+@app.route('/about')
+def about_page():
+    """Display "About" page for visitor, not logged in"""
+    if "user_id" in session:
+        return redirect(f"/users/{session['user_id']}")
+
+    return render_template("about.html")
+
 @app.route('/register', methods=["GET", "POST"])
 def register_user():
     """Display registration form if noone is logged in, add new user to database.
-    If username is already used, rerender form and provide error message"""
+    If username or email is already used, rerender form and provide error message"""
     if "user_id" in session:
         return redirect(f"/users/{session['user_id']}")
 
@@ -76,7 +81,7 @@ def register_user():
 @app.route('/login', methods=["GET", "POST"])
 def login_user():
     """Render login form. If user is already logged in redirect to user view, otherwise 
-    provide error message feedback on form"""
+    provide error message on form"""
     if "user_id" in session:
         return redirect(f"/users/{session['user_id']}")
     
@@ -172,7 +177,7 @@ def edit_paragraph(paragraph_id):
 
 @app.route('/delete_paragraph/<int:paragraph_id>', methods=["POST"])
 def delete_paragraph(paragraph_id):
-    """Route for user's button press, indicating they'd like to delete one of their paragraphs"""
+    """Delete a logged in user's paragraph from the database"""
 
     paragraph = Paragraph.query.get_or_404(paragraph_id)
     if session['user_id'] != paragraph.user_id: 

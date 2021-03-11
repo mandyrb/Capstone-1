@@ -1,3 +1,5 @@
+# Seed data to create the database and add/commit a few users, images and paragraphs
+
 from app import app
 from models import db, User, Paragraph, Image
 import datetime
@@ -67,7 +69,6 @@ p4 = Paragraph(
     user_id = 2,
     image_id = 2 
 )
-
 
 db.session.add_all([p1, p2, p3, p4])
 db.session.commit()

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %} 
+
+<div class="jumbotron blue">
+    <h1 class="display-3 text-center">Learn More about Paragraph A Day</h1>
+</div>
+
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <div class="card light">
+                <img class="card-img-top" src="https://images.unsplash.com/photo-1527482797697-8795b05a13fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMTIzOTh8MHwxfHNlYXJjaHwxfHx0b3JuYWRvfGVufDB8fHx8MTYxNTQ4MTk3OA&ixlib=rb-1.2.1&q=80&w=200" alt="Card image cap">
+                <span class="small">Photo by <a href="https://unsplash.com/@nikolasnoonan?utm_source=paragraph_a_day&utm_medium=referral">Nikolas Noonan</a> on <a href="https://unsplash.com/?utm_source=paragraph_a_day&utm_medium=referral">Unsplash</a></span>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card light">
+                <div class="card-body">
+                <h5 class="card-title">Image Prompts</h5>
+                <p class="card-text">One of the things that makes Paragraph A Day unique is its use of image prompts. Images have the capacity to inspire a wide range of responses from different users, because they truly allow the author to take their writing in any direction. For writers who have extensive experience using verbal prompts, Paragraph A Day provides a refreshing new way to inspire writing. </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card light">
+                <div class="card-body">
+                <h5 class="card-title">Character Limit</h5>
+                <p class="card-text">Have you ever felt intimidated to begin writing, because your ideas and goals are so expansive? While Paragraph A Day allows you to write as many paragraphs as you like for an image, each paragraph can only consist of 500 characters. This encourages experimentation, without the pressure of a larger goal. Save your paragraphs to edit or reference later, or just enjoy the process!</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card light">
+                <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Sharing content with others can be an amazing way to generate ideas and enjoyment, but when sharing is coupled with “likes,” “follows,” or comments, it can be hard to write freely and openly. Paragraph A Day gives you the option to anonymously share your paragraphs with other registered users, creating a sense of community without judgment or feedback. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+<br>
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div class="card blue p-2">
+      <h4 class="text-center">Click here to sign up today!<a class="btn btn-success ml-4" href="/register" role="button">Register</a></h4>
+    </div>
+  </div>
+</div>
+<br>
+
+{% endblock %}

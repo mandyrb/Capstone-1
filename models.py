@@ -10,6 +10,7 @@ def connect_db(app):
     db.init_app(app)
 
 class User(db.Model):
+    """A class for user's of the Paragraph a Day app"""
 
     __tablename__ = 'users'
 
@@ -38,6 +39,7 @@ class User(db.Model):
             return False
 
 class Paragraph(db.Model):
+    """A class for paragraphs written by users on Paragraph A Day"""
 
     __tablename__ = 'paragraphs'
 
@@ -49,6 +51,7 @@ class Paragraph(db.Model):
     image_id = db.Column(db.Integer, db.ForeignKey('images.id'), nullable=False)
 
 class Image(db.Model):
+    """A class for image prompts, including information to credit the photographer"""
 
     __tablename__ = 'images'
 

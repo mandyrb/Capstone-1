@@ -1,5 +1,6 @@
 body {
 	background-color: rgb(202, 193, 214);
+	overflow-x: hidden;
 }
 
 .blue {
@@ -8,6 +9,10 @@ body {
 
 .light_blue {
 	background-color: rgb(216, 208, 247);
+}
+
+.light {
+	background-color: rgb(238, 228, 245);
 }
 
 .btn-primary:hover {
@@ -25,6 +30,21 @@ body {
 	border-color: rgb(202, 193, 214);
 }
 
+.btn-success:hover {
+	background-color: rgb(202, 193, 214);
+	border-color: rgb(202, 193, 214);
+}
+
+.btn-success {
+	background-color: rgb(238, 228, 245);
+	border-color: rgb(238, 228, 245);
+	color: black;
+}
+
 .form-inline {
 	display: inline;
+}
+
+#examples-heading {
+	text-align: center;
 }
