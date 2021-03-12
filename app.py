@@ -132,6 +132,10 @@ def user_home(user_id):
 @app.route('/users/<int:user_id>/paragraphs')
 def view_user_paragraphs(user_id):
     """Render view of user's saved paragraphs"""
+
+    if "user_id" not in session:
+        return redirect('/')
+
     if session['user_id'] != user_id:
         return redirect('/')
     
@@ -151,7 +155,11 @@ def view_public_paragraphs():
     if form.validate_on_submit():
         image_exists = Image.query.filter(Image.date_added==form.date.data).first()
         if image_exists:
-            paragraphs = Paragraph.query.filter(Paragraph.image_id==image_exists.id).order_by(Paragraph.id.desc()).limit(10).all()
+            paragraphs_exist = Paragraph.query.filter(Paragraph.image_id==image_exists.id).order_by(Paragraph.id.desc()).limit(10).all()
+            if paragraphs_exist:
+                paragraphs = paragraphs_exist
+            else:
+                form.date.errors = ["No paragraphs were submitted on that date"]
         else:
             form.date.errors = ["No paragraphs were submitted on that date"]
     
