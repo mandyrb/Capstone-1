@@ -1,15 +1,18 @@
 from flask import Flask, render_template, redirect, session, flash
 from models import connect_db, db, User, Paragraph, Image
 from forms import UserRegistrationForm, UserLoginForm, ParagraphForm, SearchDateForm
-from secrets import client_id, secret_key
 import requests
 import datetime
+import os
 
 app = Flask(__name__)
+
 app.config["SQLALCHEMY_DATABASE_URI"] = "postgres:///paragraph_db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["SQLALCHEMY_ECHO"] = True
-app.config["SECRET_KEY"] = secret_key
+app.config["SECRET_KEY"] = os.environ['SECRET_KEY']
+
+client_id = os.environ['ACCESS_KEY']
 
 connect_db(app)
 
