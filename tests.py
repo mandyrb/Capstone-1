@@ -149,6 +149,7 @@ class UserViewTestCase(TestCase):
             html = resp.get_data(as_text=True)
 
             self.assertEqual(resp.status_code, 200)
+            self.assertIn("You must login to view your paragraphs", html)
             self.assertNotIn("My first paragraph", html)
     
     def test_my_paragraph_view_wrong_user(self):
@@ -162,6 +163,7 @@ class UserViewTestCase(TestCase):
             html = resp.get_data(as_text=True)
 
             self.assertEqual(resp.status_code, 200)
+            self.assertIn("You may not view", html)
             self.assertNotIn("My first paragraph", html)
 
     def test_create_paragraph(self):
@@ -177,6 +179,30 @@ class UserViewTestCase(TestCase):
             self.assertEqual(resp.status_code, 200)
             self.assertIn("Test Title", str(resp.data))
 
+    def test_create_paragraph_wrong_user(self):
+        """Make sure a logged in user can't create a paragraph for another user"""
+
+        with self.client as c:
+            with c.session_transaction() as sess:
+                sess['user_id'] = self.seconduser.id
+
+            data={"title": "Test Title", "content": "Test Content", "public": True}
+            resp = c.post("/users/1234", data=data, follow_redirects=True)
+
+            self.assertEqual(resp.status_code, 200)
+            self.assertIn("You may not create a paragraph for another user", str(resp.data))
+
+    def test_create_paragraph_no_user(self):
+        """Make sure someone can't create a paragraph if they're not logged in"""
+
+        with self.client as c:
+
+            data={"title": "Test Title", "content": "Test Content", "public": True}
+            resp = c.post("/users/1234", data=data, follow_redirects=True)
+
+            self.assertEqual(resp.status_code, 200)
+            self.assertIn("You must login to create a paragraph", str(resp.data))
+
     def test_public_paragraph_view(self):
         """Make sure a logged in user can view public paragraphs from another user"""
 
@@ -189,6 +215,17 @@ class UserViewTestCase(TestCase):
 
             self.assertEqual(resp.status_code, 200)
             self.assertIn("My first paragraph", html)
+
+    def test_public_paragraph_view_no_user(self):
+        """Make sure a user can't view public paragraphs unless they're logged in"""
+
+        with self.client as c:
+            
+            resp = c.get('/public_paragraphs', follow_redirects=True)
+            html = resp.get_data(as_text=True)
+
+            self.assertEqual(resp.status_code, 200)
+            self.assertIn("You must login to view public paragraphs", html)
 
     def test_public_paragraph_search(self):
         """Make sure a logged in user can search for public paragraphs by date"""
@@ -240,9 +277,22 @@ class UserViewTestCase(TestCase):
             
             data={"title" : "New Title", "content" : "New Content", "public" : False}
             resp = c.post('/edit_paragraph/222', data=data, follow_redirects=True)
+            
 
             self.assertEqual(resp.status_code, 200)
-            self.assertIn("seconduser", str(resp.data))
+            self.assertIn("You may not edit", str(resp.data))
+            self.assertNotIn("New Title", str(resp.data))
+
+    def test_edit_paragraph_no_user(self):
+        """Make sure someone can't edit a paragraph if they're not logged in"""
+
+        with self.client as c:
+            
+            data={"title" : "New Title", "content" : "New Content", "public" : False}
+            resp = c.post('/edit_paragraph/222', data=data, follow_redirects=True)
+
+            self.assertEqual(resp.status_code, 200)
+            self.assertIn("You must login to edit paragraphs", str(resp.data))
             self.assertNotIn("New Title", str(resp.data))
 
     def test_delete_paragraph(self):
@@ -267,4 +317,16 @@ class UserViewTestCase(TestCase):
             resp = c.post('/delete_paragraph/222', follow_redirects=True)
 
             self.assertEqual(resp.status_code, 200)
+            self.assertIn("You may not delete", str(resp.data))
+            self.assertEqual(len(Paragraph.query.all()), 1)
+
+    def test_delete_paragraph_no_user(self):
+        """Make sure if no one is logged in, they can't delete someone's paragraph'"""
+
+        with self.client as c:
+            
+            resp = c.post('/delete_paragraph/222', follow_redirects=True)
+
+            self.assertEqual(resp.status_code, 200)
+            self.assertIn("You may not delete", str(resp.data))
             self.assertEqual(len(Paragraph.query.all()), 1)

@@ -111,7 +111,12 @@ def logout_user(user_id):
 def user_home(user_id):
     """Render home view for logged in user, show today's image, provide form for submitting paragraph.
     On submit, add paragraph to database and redirect to user's "My Paragraphs" page"""
+    if "user_id" not in session:
+        flash("You must login to create a paragraph")
+        return redirect('/')
+    
     if session['user_id'] != user_id:
+        flash("You may not create a paragraph for another user")
         return redirect('/')
 
     user = User.query.get_or_404(user_id)
@@ -134,9 +139,11 @@ def view_user_paragraphs(user_id):
     """Render view of user's saved paragraphs"""
 
     if "user_id" not in session:
+        flash("You must login to view your paragraphs")
         return redirect('/')
 
     if session['user_id'] != user_id:
+        flash("You may not view another user's private paragraphs")
         return redirect('/')
     
     paragraphs = Paragraph.query.filter(Paragraph.user_id==user_id).order_by(Paragraph.id.desc()).all()
@@ -148,6 +155,7 @@ def view_public_paragraphs():
     """Provide logged in user with view of others' recent paragraphs"""
 
     if "user_id" not in session:
+        flash("You must login to view public paragraphs")
         return redirect('/')
     
     paragraphs = Paragraph.query.filter(Paragraph.public==True).order_by(Paragraph.id.desc()).limit(10).all()
@@ -169,8 +177,13 @@ def view_public_paragraphs():
 def edit_paragraph(paragraph_id):
     """Render form for user to edit a paragraph and process form submission"""
 
+    if "user_id" not in session:
+        flash("You must login to edit paragraphs")
+        return redirect('/')
+
     paragraph = Paragraph.query.get_or_404(paragraph_id)
     if session['user_id'] != paragraph.user_id: 
+        flash("You may not edit another user's paragraph")
         return redirect('/')  
 
     form = ParagraphForm(obj=paragraph)
@@ -187,8 +200,13 @@ def edit_paragraph(paragraph_id):
 def delete_paragraph(paragraph_id):
     """Delete a logged in user's paragraph from the database"""
 
+    if "user_id" not in session:
+        flash("You may not delete another user's paragraph")
+        return redirect('/')
+
     paragraph = Paragraph.query.get_or_404(paragraph_id)
     if session['user_id'] != paragraph.user_id: 
+        flash("You may not delete another user's paragraph")
         return redirect('/')  
     
     db.session.delete(paragraph)
