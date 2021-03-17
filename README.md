@@ -1,4 +1,4 @@
-#Paragraph A Day
+# Paragraph A Day
 
 [View App on Heroku](https://paragraph-a-day.herokuapp.com/)
 
