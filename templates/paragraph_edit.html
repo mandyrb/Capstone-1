@@ -6,41 +6,42 @@
 
     
 <div class="jumbotron blue">
-    <h1 class="display-4">Edit Your Paragraph </h1>
+    <h1 class="display-4 text-center">Edit Your Paragraph </h1>
+    <br>
     <p class="lead">Think a different title would work better for this paragraph? Want to tweak your content or your public/private setting? Edit your paragraph as you see fit.</p>
 </div>
 
 <div class="row mb-3">
-    <div class="col-3">
-        <div class="card ml-4">
+    <div class="col-md-3 mt-2">
+        <div class="card">
                 <img src="{{paragraph.image.image_url}}" alt="Card image cap">
           <span class="small">Photo by <a href="{{paragraph.image.credit_url}}?utm_source=paragraph_a_day&utm_medium=referral">{{paragraph.image.photographer}}</a> on <a href="https://unsplash.com/?utm_source=paragraph_a_day&utm_medium=referral">Unsplash</a></span>
         </div>
     </div>
-    <div class="col-9">
-        <div class="card mr-4">
+    <div class="col-md-9 mt-2">
+        <div class="card">
           <div class="card-body">
             <h5 class="card-title text-center">Edit your paragraph here!</h5>
             <form novalidate method="POST">
                 {{ form.hidden_tag() }}
                 <div class="form-group">
                     <div class="row justify-content-center">
-                        <div class="col-9">
+                        <div class="col-md-9 mt-3">
                             {{form.title.label}}
                             {{form.title(class_="form-control")}}
                             {% for error in form.title.errors %}
                             <span class="form-text text-danger">{{error}}</span>
                             {% endfor %}
                         </div>
-                        <div class="col-1">
+                        <div class="col-md-1 mt-3">
                             {{form.public.label}}
-                            {{form.public(class_="form-control")}}
+                            {{form.public}}
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="row justify-content-center">
-                        <div class="col-10">
+                        <div class="col-md-10">
                             {{form.content.label}} <span id="char_count">(characters remaining: 500)</span>
                             {{form.content(class_="form-control")}}
                             {% for error in form.content.errors %}
@@ -50,7 +51,7 @@
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-10">
+                    <div class="col-md-10">
                         <button class="btn btn-primary mt-4 mb-4" name="register-button">Submit</button>
                         <a href="/users/{{paragraph.user_id}}/paragraphs" class="btn btn-secondary">Cancel</a>
                     </div>

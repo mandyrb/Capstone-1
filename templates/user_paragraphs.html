@@ -5,20 +5,21 @@
 {% block content %} 
 
 <div class="jumbotron blue">
-    <h1 class="display-4">My Paragraphs</h1>
+    <h1 class="display-4 text-center">My Paragraphs</h1>
+    <br>
     <p class="lead">Looking back over your saved paragraphs can be a fun and rewarding experience. You may find a gem you want to copy and use for another project, or find a diamond in the rough that you'd like to edit. Enjoy your journey down memory lane.</p>
 </div>
 
 {% for paragraph in paragraphs %}
 <div class="row">
-    <div class="col-2">
-        <div class="card ml-4 light">
+    <div class="col-md-2">
+        <div class="card light">
                 <img src="{{paragraph.image.image_url}}" alt="Card image cap">
           <span class="small">Photo by <a href="{{paragraph.image.credit_url}}?utm_source=paragraph_a_day&utm_medium=referral">{{paragraph.image.photographer}}</a> on <a href="https://unsplash.com/?utm_source=paragraph_a_day&utm_medium=referral">Unsplash</a></span>
         </div>
     </div>
-    <div class="col-10">
-        <div class="card mr-4 light">
+    <div class="col-md-10">
+        <div class="card light">
           <div class="card-body">
             <h5 class="card-title">{{paragraph.title}} 
                 {% if paragraph.public == True %}
