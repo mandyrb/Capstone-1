@@ -22,11 +22,6 @@
         <div class="card light">
           <div class="card-body">
             <h5 class="card-title">{{paragraph.title}} 
-                {% if paragraph.public == True %}
-                    <small>(public)</small>
-                {% else %}
-                    <small>(private)</small>
-                {% endif %}
                 {% if user_id == paragraph.user_id %}
                 <a href="/edit_paragraph/{{paragraph.id}}" class="btn btn-light btn-sm">Edit</a>
                 <form class="form-inline" action="/delete_paragraph/{{paragraph.id}}" method="POST"> 
@@ -34,6 +29,14 @@
                 </form>
                 {% endif %}
             </h5>
+            <p><small>This paragraph is currently
+                {% if paragraph.public == True %}
+                public
+                {% else %}
+                private
+                {% endif %}
+                and was created on {{paragraph.image.date_added.strftime('%m/%d/%Y')}}</small>
+            </p>
             <p>{{paragraph.content}}</p>
           </div>
         </div>

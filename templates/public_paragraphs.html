@@ -54,6 +54,8 @@
                     </form>
                     {% endif %}
                 </h5>
+                <p><small>Created on: {{paragraph.image.date_added.strftime('%m/%d/%Y')}}</small>
+                </p>
                 <p>{{paragraph.content}}</p>
               </div>
             </div>
