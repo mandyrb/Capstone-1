@@ -12,13 +12,13 @@
 
 {% for paragraph in paragraphs %}
 <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-2 align-self-center">
         <div class="card light">
                 <img src="{{paragraph.image.image_url}}" alt="Card image cap">
           <span class="small">Photo by <a href="{{paragraph.image.credit_url}}?utm_source=paragraph_a_day&utm_medium=referral">{{paragraph.image.photographer}}</a> on <a href="https://unsplash.com/?utm_source=paragraph_a_day&utm_medium=referral">Unsplash</a></span>
         </div>
     </div>
-    <div class="col-md-10">
+    <div class="col-md-10 align-self-center">
         <div class="card light">
           <div class="card-body">
             <h5 class="card-title">{{paragraph.title}} 
