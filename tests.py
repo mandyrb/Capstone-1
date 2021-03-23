@@ -81,7 +81,7 @@ class UserViewTestCase(TestCase):
             html = resp.get_data(as_text=True)
 
             self.assertEqual(resp.status_code, 200)
-            self.assertIn("Learn More about Paragraph A Day", html)
+            self.assertIn("About Paragraph A Day", html)
     
     def test_register_user(self):
         """Ensure that registration works with email provided"""
