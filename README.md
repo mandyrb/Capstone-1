@@ -10,7 +10,7 @@
 
 **Technology Stack**: Paragraph A Day utilizes HTML, CSS,  Bootstrap, Javascript/JQuery, PostgreSQL, SQLAlchemy, Flask, Python, and WTForms.
 
-**Project Setup**: If you clone this repository and would like to run the app on your local machine, these steps will help you get started. This project uses [Python](https://www.python.org/downloads/) and [PostgreSQL](https://www.postgresql.org/download) which you will need to download. You may find this [documentation for PostgreSQL](https://www.postgresql.org/docs/9.3/tutorial-install.html)  and [documentation for Python](https://docs.python.org/3/using/index.html) helpful for installation. In developing this app, I used [Git Bash](https://git-scm.com/downloads) for my command line interface, though you may choose to use a different tool. Once these basics are in place, you're ready for project setup at the command line: 
+**Project Setup**: If you clone this repository and would like to run the app on your local machine, these steps will help you get started. This project uses [Python](https://www.python.org/downloads/) and [PostgreSQL](https://www.postgresql.org/download) which you will need to download. You may find this [documentation for PostgreSQL](https://www.postgresql.org/docs/current/tutorial.html)  and [documentation for Python](https://docs.python.org/3/using/index.html) helpful for installation. In developing this app, I used [Git Bash](https://git-scm.com/downloads) for my command line interface, though you may choose to use a different tool. Once these basics are in place, you're ready for project setup at the command line: 
 
 - Create a database for the project, as well as a test database for testing. These can be created by running the following commands:
      - `createdb paragraph_db`
